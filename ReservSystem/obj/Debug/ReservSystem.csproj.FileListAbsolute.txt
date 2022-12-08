@@ -1,0 +1,11 @@
+D:\Projects\Scripts\ReservSystem\bin\Debug\ReservSystem.exe.config
+D:\Projects\Scripts\ReservSystem\bin\Debug\ReservSystem.exe
+D:\Projects\Scripts\ReservSystem\bin\Debug\ReservSystem.pdb
+D:\Projects\Scripts\ReservSystem\obj\Debug\ReservSystem.csproj.AssemblyReference.cache
+D:\Projects\Scripts\ReservSystem\obj\Debug\ReservSystem.csproj.SuggestedBindingRedirects.cache
+D:\Projects\Scripts\ReservSystem\obj\Debug\ReservSystem.Form1.resources
+D:\Projects\Scripts\ReservSystem\obj\Debug\ReservSystem.Properties.Resources.resources
+D:\Projects\Scripts\ReservSystem\obj\Debug\ReservSystem.csproj.GenerateResource.cache
+D:\Projects\Scripts\ReservSystem\obj\Debug\ReservSystem.csproj.CoreCompileInputs.cache
+D:\Projects\Scripts\ReservSystem\obj\Debug\ReservSystem.exe
+D:\Projects\Scripts\ReservSystem\obj\Debug\ReservSystem.pdb
