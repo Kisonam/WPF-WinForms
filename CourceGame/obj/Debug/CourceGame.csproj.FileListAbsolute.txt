@@ -1,0 +1,12 @@
+D:\Projects\Scripts\CourceGame\bin\Debug\CourceGame.exe.config
+D:\Projects\Scripts\CourceGame\bin\Debug\CourceGame.exe
+D:\Projects\Scripts\CourceGame\bin\Debug\CourceGame.pdb
+D:\Projects\Scripts\CourceGame\obj\Debug\CourceGame.csproj.AssemblyReference.cache
+D:\Projects\Scripts\CourceGame\obj\Debug\CourceGame.csproj.SuggestedBindingRedirects.cache
+D:\Projects\Scripts\CourceGame\obj\Debug\CourceGame.Form1.resources
+D:\Projects\Scripts\CourceGame\obj\Debug\CourceGame.Properties.Resources.resources
+D:\Projects\Scripts\CourceGame\obj\Debug\CourceGame.Resource1.resources
+D:\Projects\Scripts\CourceGame\obj\Debug\CourceGame.csproj.GenerateResource.cache
+D:\Projects\Scripts\CourceGame\obj\Debug\CourceGame.csproj.CoreCompileInputs.cache
+D:\Projects\Scripts\CourceGame\obj\Debug\CourceGame.exe
+D:\Projects\Scripts\CourceGame\obj\Debug\CourceGame.pdb
