@@ -9,6 +9,7 @@ namespace CourceGame
         int[,] _map = new int[50,50];
         int _viewX = 0;
         int _viewY = 0;
+        int curentBlock;
 
         Image _groundBlock = Resource1.Ground1;
         Image _sendBlock = Resource1.Ground2;
@@ -145,7 +146,22 @@ namespace CourceGame
             x = (cursor.X + _viewX) / blockWidth ;
             y = (cursor.Y + _viewY) / blockHeight ;
 
-            _map[x,y] = 2;
+            _map[x,y] = curentBlock;
+        }
+
+        private void GroundBox_Click(object sender, EventArgs e)
+        {
+            curentBlock = 1;
+        }
+
+        private void SendBox_Click(object sender, EventArgs e)
+        {
+            curentBlock = 2;
+        }
+
+        private void EmptyBox_Click(object sender, EventArgs e)
+        {
+            curentBlock = 0;
         }
 
         private void DrawBlock(Rectangle rect, int blockType, Graphics g)

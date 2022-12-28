@@ -32,7 +32,13 @@
             this.ExitEmage = new System.Windows.Forms.PictureBox();
             this.MainLoopTimer = new System.Windows.Forms.Timer(this.components);
             this.log = new System.Windows.Forms.Label();
+            this.GroundBox = new System.Windows.Forms.PictureBox();
+            this.SendBox = new System.Windows.Forms.PictureBox();
+            this.EmptyBox = new System.Windows.Forms.PictureBox();
             ((System.ComponentModel.ISupportInitialize)(this.ExitEmage)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.GroundBox)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.SendBox)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.EmptyBox)).BeginInit();
             this.SuspendLayout();
             // 
             // ExitEmage
@@ -64,12 +70,56 @@
             this.log.Size = new System.Drawing.Size(0, 13);
             this.log.TabIndex = 1;
             // 
+            // GroundBox
+            // 
+            this.GroundBox.BackColor = System.Drawing.Color.Transparent;
+            this.GroundBox.BackgroundImage = global::CourceGame.Resource1.Ground1;
+            this.GroundBox.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.GroundBox.ErrorImage = null;
+            this.GroundBox.InitialImage = null;
+            this.GroundBox.Location = new System.Drawing.Point(12, 4);
+            this.GroundBox.Name = "GroundBox";
+            this.GroundBox.Size = new System.Drawing.Size(23, 22);
+            this.GroundBox.TabIndex = 2;
+            this.GroundBox.TabStop = false;
+            this.GroundBox.Click += new System.EventHandler(this.GroundBox_Click);
+            // 
+            // SendBox
+            // 
+            this.SendBox.BackColor = System.Drawing.Color.Transparent;
+            this.SendBox.BackgroundImage = global::CourceGame.Resource1.Ground2;
+            this.SendBox.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.SendBox.ErrorImage = null;
+            this.SendBox.InitialImage = null;
+            this.SendBox.Location = new System.Drawing.Point(41, 4);
+            this.SendBox.Name = "SendBox";
+            this.SendBox.Size = new System.Drawing.Size(23, 22);
+            this.SendBox.TabIndex = 3;
+            this.SendBox.TabStop = false;
+            this.SendBox.Click += new System.EventHandler(this.SendBox_Click);
+            // 
+            // EmptyBox
+            // 
+            this.EmptyBox.BackColor = System.Drawing.Color.Black;
+            this.EmptyBox.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.EmptyBox.ErrorImage = null;
+            this.EmptyBox.InitialImage = null;
+            this.EmptyBox.Location = new System.Drawing.Point(70, 3);
+            this.EmptyBox.Name = "EmptyBox";
+            this.EmptyBox.Size = new System.Drawing.Size(23, 22);
+            this.EmptyBox.TabIndex = 4;
+            this.EmptyBox.TabStop = false;
+            this.EmptyBox.Click += new System.EventHandler(this.EmptyBox_Click);
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.Teal;
             this.ClientSize = new System.Drawing.Size(800, 600);
+            this.Controls.Add(this.EmptyBox);
+            this.Controls.Add(this.SendBox);
+            this.Controls.Add(this.GroundBox);
             this.Controls.Add(this.log);
             this.Controls.Add(this.ExitEmage);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
@@ -80,6 +130,9 @@
             this.Click += new System.EventHandler(this.Form1_Click);
             this.Paint += new System.Windows.Forms.PaintEventHandler(this.Form1_Paint);
             ((System.ComponentModel.ISupportInitialize)(this.ExitEmage)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.GroundBox)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.SendBox)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.EmptyBox)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -90,6 +143,9 @@
         private System.Windows.Forms.PictureBox ExitEmage;
         private System.Windows.Forms.Timer MainLoopTimer;
         private System.Windows.Forms.Label log;
+        private System.Windows.Forms.PictureBox GroundBox;
+        private System.Windows.Forms.PictureBox SendBox;
+        private System.Windows.Forms.PictureBox EmptyBox;
     }
 }
 
