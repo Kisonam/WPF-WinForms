@@ -6,7 +6,7 @@ namespace CourceGame
 {
     public partial class Form1 : Form
     {
-        int[] _map;
+        int[,] _map = new int[50,50];
         int _viewX = 0;
 
         Image _groundBlock = Resource1.Ground1;
@@ -22,11 +22,13 @@ namespace CourceGame
                 ControlStyles.DoubleBuffer, true );
 
             Random r = new Random();
-            _map = new int[30];
 
-            for (int i = 0; i < _map.Length; i++)
+            for (int x = 0; x < _map.GetLength(0); x++)
             {
-                _map[i] = r.Next(1, 3);
+                for (int y = 0; y < _map.GetLength(1); y++)
+                {
+                    _map[x, 0] = 1;
+                }
             }
         }
         private void MainLoopTimer_Tick(object sender, EventArgs e)
@@ -62,21 +64,15 @@ namespace CourceGame
         {
             Graphics g = e.Graphics;
 
-            for(int i = 0; i < _map.Length; i++)
+            for(int x= 0; x < _map.GetLength(0); x++)
             {
-                Image currentImage = null;
-                if (_map[i] == 1)
+                for (int y = 0; y < _map.GetLength(1); y++)
                 {
-                    currentImage = _groundBlock;
+                    int blockType = _map[x, y]; 
+                    Rectangle rect = new Rectangle((x * blockWidth) - _viewX,(y * blockHeight), blockWidth, blockHeight);
+                    DrawBlock(rect, blockType, g);
                 }
-                else if ( _map[i] == 2)
-                {
-                    currentImage = _sendBlock;
-                }
-
-                g.DrawImage(currentImage, new Rectangle((i * blockWidth) - _viewX, 520, blockWidth, blockHeight));
-
-            } 
+            }
         }
         private int Clamp(int value, int min, int max)
         {
@@ -94,6 +90,26 @@ namespace CourceGame
         private void pictureBox1_Click(object sender, EventArgs e)
         {
             Application.Exit();
+        }
+
+        private void DrawBlock(Rectangle rect, int blockType, Graphics g)
+        {
+            Image currentImage = null;
+            if (blockType == 1)
+            {
+                currentImage = _groundBlock;
+            }
+            else if (blockType == 2)
+            {
+                currentImage = _sendBlock;
+            }
+
+            if (currentImage == null)
+            {
+                return;
+            }
+
+            g.DrawImage(currentImage,rect);
         }
     }
 }
