@@ -23,13 +23,18 @@ namespace CourceGame
                 ControlStyles.AllPaintingInWmPaint |
                 ControlStyles.DoubleBuffer, true );
 
+            KeyPreview = true;
             Random r = new Random();
-
+            int direction = 1;
+            int y = 5;
             for (int x = 0; x < _map.GetLength(0); x++)
             {
-                for (int y = 0; y < _map.GetLength(1); y++)
+                y += direction;
+                direction = r.Next(-1, 2);
+                for(int i = y ; i < _map.GetLength(1); i++)
                 {
-                    _map[x, 7] = 1;
+                    _map[x, i] = 1;
+
                 }
             }
         }
@@ -65,11 +70,11 @@ namespace CourceGame
             speed = 20 * (deep / borderRadius);
 
             _viewX += (int)speed;
-            _viewX = Clamp(_viewX, 0, _map.Length * blockWidth - 800);
+            _viewX = Clamp(_viewX, 0, _map.GetLength(0) * blockWidth - 800);
 
             
         }
-        private void MoveCameraVertical(Point cursor)
+        private void MoveCameraVertical(Point cursor) 
         {
 
 
@@ -91,7 +96,7 @@ namespace CourceGame
             speed = 20 * (deep / borderRadius);
 
             _viewY += (int)speed;
-            _viewY = Clamp(_viewY, 0, _map.Length * blockWidth - 600);
+            _viewY = Clamp(_viewY, 0, _map.GetLength(1) * blockHeight - 600);
 
 
         }
@@ -149,21 +154,7 @@ namespace CourceGame
             _map[x,y] = curentBlock;
         }
 
-        private void GroundBox_Click(object sender, EventArgs e)
-        {
-            curentBlock = 1;
-        }
-
-        private void SendBox_Click(object sender, EventArgs e)
-        {
-            curentBlock = 2;
-        }
-
-        private void EmptyBox_Click(object sender, EventArgs e)
-        {
-            curentBlock = 0;
-        }
-
+        
         private void DrawBlock(Rectangle rect, int blockType, Graphics g)
         {
             Image currentImage = null;
@@ -183,5 +174,22 @@ namespace CourceGame
 
             g.DrawImage(currentImage,rect);
         }
+
+        // UI
+        private void GroundBox_Click(object sender, EventArgs e)
+        {
+            curentBlock = 1;
+        }
+
+        private void SendBox_Click(object sender, EventArgs e)
+        {
+            curentBlock = 2;
+        }
+
+        private void EmptyBox_Click(object sender, EventArgs e)
+        {
+            curentBlock = 0;
+        }
+
     }
 }
