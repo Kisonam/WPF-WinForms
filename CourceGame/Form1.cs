@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Drawing;
 using System.Windows.Forms;
+using System.IO;
 
 namespace CourceGame
 {
@@ -160,7 +161,16 @@ namespace CourceGame
             _map[x,y] = curentBlock;
         }
 
-        
+        private void CleanWold()
+        {
+            for (int x = 0; x < _map.GetLength(0); x++)
+            {
+                for (int y = 0; y < _map.GetLength(1); y++)
+                {
+                    _map[x, y] = 0;
+                }
+            }
+        }
         private void DrawBlock(Rectangle rect, int blockType, Graphics g)
         {
             Image currentImage = null;
@@ -183,11 +193,55 @@ namespace CourceGame
 
         private void LoadWorld()
         {
+            CleanWold();
+            string[] lines = File.ReadAllLines("first.world");
+            for (int i = 0; i < lines.Length; i++)
+            {
+                string line = lines[i];
+                string[] tagAndDAta = line.Split(':');
+                if (tagAndDAta[0] == "Block")
+                {
+                    int x = 0, y = 0, type = 0;
+                    string[] data = tagAndDAta[1].Split(';');
+                    for (int j = 0; j < data.Length; j++)
+                    {
+                        string[] nameAndValue = data[j].Split('=');
+                        if(nameAndValue[0] == "X")
+                        {
+                            x = int.Parse(nameAndValue[1]);
 
+                        }else if (nameAndValue[0] == "Y")
+                        {   
+                            y = int.Parse(nameAndValue[1]);
+
+                        }else if (nameAndValue[0] == "Type") 
+                        {
+                            type = int.Parse(nameAndValue[1]);
+                        }
+                    }
+                    _map[x, y] = type;
+                }
+                else if (tagAndDAta[0] == "Camera")
+                {
+
+                }
+            }
         }
 
         private void SaveWorld()
         {
+            File.Delete("first.world");
+            for (int x = 0; x < _map.GetLength(0); x++)
+            {
+                for (int y = 0; y < _map.GetLength(1); y++)
+                {
+                    if (_map[x,y] != 0)
+                    {
+                        File.AppendAllText("first.world", $"Block:X={x};Y={y};Type={_map[x,y]}\n");
+                    }
+                }
+            }
+            File.AppendAllText("first.world", $"Camera:X={_viewX};Y={_viewY}\n");
 
         }
         // UI
@@ -203,17 +257,18 @@ namespace CourceGame
 
         private void btnGenerate_Click(object sender, EventArgs e)
         {
+            CleanWold();
             GenerateWorld();
         }
 
         private void btnSave_Click(object sender, EventArgs e)
         {
-
+            SaveWorld();
         }
 
         private void btnLoad_Click(object sender, EventArgs e)
         {
-
+            LoadWorld();
         }
 
         private void EmptyBox_Click(object sender, EventArgs e)

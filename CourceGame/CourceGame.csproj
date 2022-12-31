@@ -97,5 +97,8 @@
   <ItemGroup>
     <None Include="Resources\Ground2.png" />
   </ItemGroup>
+  <ItemGroup>
+    <Content Include="SaveFile.txt" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
