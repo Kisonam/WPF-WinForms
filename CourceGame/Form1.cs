@@ -21,9 +21,14 @@ namespace CourceGame
             InitializeComponent();
             this.SetStyle(ControlStyles.UserPaint |
                 ControlStyles.AllPaintingInWmPaint |
-                ControlStyles.DoubleBuffer, true );
+                ControlStyles.DoubleBuffer, true);
 
             KeyPreview = true;
+            GenerateWorld();
+        }
+
+        private void GenerateWorld()
+        {
             Random r = new Random();
             int direction = 1;
             int y = 5;
@@ -31,13 +36,14 @@ namespace CourceGame
             {
                 y += direction;
                 direction = r.Next(-1, 2);
-                for(int i = y ; i < _map.GetLength(1); i++)
+                for (int i = y; i < _map.GetLength(1); i++)
                 {
                     _map[x, i] = 1;
 
                 }
             }
         }
+
         private void MainLoopTimer_Tick(object sender, EventArgs e)
         {
             Point cursor = PointToClient(Cursor.Position);
@@ -175,6 +181,15 @@ namespace CourceGame
             g.DrawImage(currentImage,rect);
         }
 
+        private void LoadWorld()
+        {
+
+        }
+
+        private void SaveWorld()
+        {
+
+        }
         // UI
         private void GroundBox_Click(object sender, EventArgs e)
         {
@@ -184,6 +199,21 @@ namespace CourceGame
         private void SendBox_Click(object sender, EventArgs e)
         {
             curentBlock = 2;
+        }
+
+        private void btnGenerate_Click(object sender, EventArgs e)
+        {
+            GenerateWorld();
+        }
+
+        private void btnSave_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void btnLoad_Click(object sender, EventArgs e)
+        {
+
         }
 
         private void EmptyBox_Click(object sender, EventArgs e)
