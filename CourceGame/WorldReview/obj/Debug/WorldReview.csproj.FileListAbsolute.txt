@@ -1,0 +1,14 @@
+D:\Projects\Scripts\WorldReview\bin\Debug\WorldReview.exe.config
+D:\Projects\Scripts\WorldReview\bin\Debug\WorldReview.exe
+D:\Projects\Scripts\WorldReview\bin\Debug\WorldReview.pdb
+D:\Projects\Scripts\WorldReview\bin\Debug\GameCore.dll
+D:\Projects\Scripts\WorldReview\bin\Debug\GameCore.pdb
+D:\Projects\Scripts\WorldReview\obj\Debug\WorldReview.csproj.AssemblyReference.cache
+D:\Projects\Scripts\WorldReview\obj\Debug\WorldReview.csproj.SuggestedBindingRedirects.cache
+D:\Projects\Scripts\WorldReview\obj\Debug\WorldReview.Form1.resources
+D:\Projects\Scripts\WorldReview\obj\Debug\WorldReview.Properties.Resources.resources
+D:\Projects\Scripts\WorldReview\obj\Debug\WorldReview.csproj.GenerateResource.cache
+D:\Projects\Scripts\WorldReview\obj\Debug\WorldReview.csproj.CoreCompileInputs.cache
+D:\Projects\Scripts\WorldReview\obj\Debug\WorldReview.csproj.CopyComplete
+D:\Projects\Scripts\WorldReview\obj\Debug\WorldReview.exe
+D:\Projects\Scripts\WorldReview\obj\Debug\WorldReview.pdb
