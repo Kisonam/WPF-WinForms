@@ -29,6 +29,7 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Form1));
             this.ExitEmage = new System.Windows.Forms.PictureBox();
             this.MainLoopTimer = new System.Windows.Forms.Timer(this.components);
             this.log = new System.Windows.Forms.Label();
@@ -47,11 +48,11 @@
             // ExitEmage
             // 
             this.ExitEmage.BackColor = System.Drawing.Color.Transparent;
-            this.ExitEmage.BackgroundImage = global::CourceGame.Resource1.ExitBtn;
+            this.ExitEmage.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("ExitEmage.BackgroundImage")));
             this.ExitEmage.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.ExitEmage.ErrorImage = null;
             this.ExitEmage.InitialImage = null;
-            this.ExitEmage.Location = new System.Drawing.Point(774, 3);
+            this.ExitEmage.Location = new System.Drawing.Point(774, 24);
             this.ExitEmage.Name = "ExitEmage";
             this.ExitEmage.Size = new System.Drawing.Size(23, 22);
             this.ExitEmage.TabIndex = 0;
@@ -68,7 +69,7 @@
             // 
             this.log.AutoSize = true;
             this.log.BackColor = System.Drawing.Color.Lime;
-            this.log.Location = new System.Drawing.Point(13, 13);
+            this.log.Location = new System.Drawing.Point(13, 34);
             this.log.Name = "log";
             this.log.Size = new System.Drawing.Size(0, 13);
             this.log.TabIndex = 1;
@@ -76,11 +77,11 @@
             // GroundBox
             // 
             this.GroundBox.BackColor = System.Drawing.Color.Transparent;
-            this.GroundBox.BackgroundImage = global::CourceGame.Resource1.Ground1;
+            this.GroundBox.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("GroundBox.BackgroundImage")));
             this.GroundBox.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.GroundBox.ErrorImage = null;
             this.GroundBox.InitialImage = null;
-            this.GroundBox.Location = new System.Drawing.Point(12, 4);
+            this.GroundBox.Location = new System.Drawing.Point(12, 25);
             this.GroundBox.Name = "GroundBox";
             this.GroundBox.Size = new System.Drawing.Size(23, 22);
             this.GroundBox.TabIndex = 2;
@@ -90,11 +91,11 @@
             // SendBox
             // 
             this.SendBox.BackColor = System.Drawing.Color.Transparent;
-            this.SendBox.BackgroundImage = global::CourceGame.Resource1.Ground2;
+            this.SendBox.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("SendBox.BackgroundImage")));
             this.SendBox.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.SendBox.ErrorImage = null;
             this.SendBox.InitialImage = null;
-            this.SendBox.Location = new System.Drawing.Point(41, 4);
+            this.SendBox.Location = new System.Drawing.Point(41, 25);
             this.SendBox.Name = "SendBox";
             this.SendBox.Size = new System.Drawing.Size(23, 22);
             this.SendBox.TabIndex = 3;
@@ -107,7 +108,7 @@
             this.EmptyBox.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.EmptyBox.ErrorImage = null;
             this.EmptyBox.InitialImage = null;
-            this.EmptyBox.Location = new System.Drawing.Point(70, 3);
+            this.EmptyBox.Location = new System.Drawing.Point(70, 24);
             this.EmptyBox.Name = "EmptyBox";
             this.EmptyBox.Size = new System.Drawing.Size(23, 22);
             this.EmptyBox.TabIndex = 4;
@@ -116,7 +117,7 @@
             // 
             // btnSave
             // 
-            this.btnSave.Location = new System.Drawing.Point(521, 4);
+            this.btnSave.Location = new System.Drawing.Point(521, 25);
             this.btnSave.Name = "btnSave";
             this.btnSave.Size = new System.Drawing.Size(75, 23);
             this.btnSave.TabIndex = 5;
@@ -126,7 +127,7 @@
             // 
             // btnLoad
             // 
-            this.btnLoad.Location = new System.Drawing.Point(602, 4);
+            this.btnLoad.Location = new System.Drawing.Point(602, 25);
             this.btnLoad.Name = "btnLoad";
             this.btnLoad.Size = new System.Drawing.Size(75, 23);
             this.btnLoad.TabIndex = 6;
@@ -136,7 +137,7 @@
             // 
             // btnGenerate
             // 
-            this.btnGenerate.Location = new System.Drawing.Point(683, 4);
+            this.btnGenerate.Location = new System.Drawing.Point(683, 25);
             this.btnGenerate.Name = "btnGenerate";
             this.btnGenerate.Size = new System.Drawing.Size(75, 23);
             this.btnGenerate.TabIndex = 7;

@@ -2,6 +2,7 @@
 using System.Drawing;
 using System.Windows.Forms;
 using System.IO;
+using GameCore;
 
 namespace CourceGame
 {
@@ -32,7 +33,7 @@ namespace CourceGame
         {
             Random r = new Random();
             int direction = 1;
-            int y = 5;
+            int y = 1;
             for (int x = 0; x < _map.GetLength(0); x++)
             {
                 y += direction;
@@ -191,42 +192,6 @@ namespace CourceGame
             g.DrawImage(currentImage,rect);
         }
 
-        private void LoadWorld()
-        {
-            CleanWold();
-            string[] lines = File.ReadAllLines("first.world");
-            for (int i = 0; i < lines.Length; i++)
-            {
-                string line = lines[i];
-                string[] tagAndDAta = line.Split(':');
-                if (tagAndDAta[0] == "Block")
-                {
-                    int x = 0, y = 0, type = 0;
-                    string[] data = tagAndDAta[1].Split(';');
-                    for (int j = 0; j < data.Length; j++)
-                    {
-                        string[] nameAndValue = data[j].Split('=');
-                        if(nameAndValue[0] == "X")
-                        {
-                            x = int.Parse(nameAndValue[1]);
-
-                        }else if (nameAndValue[0] == "Y")
-                        {   
-                            y = int.Parse(nameAndValue[1]);
-
-                        }else if (nameAndValue[0] == "Type") 
-                        {
-                            type = int.Parse(nameAndValue[1]);
-                        }
-                    }
-                    _map[x, y] = type;
-                }
-                else if (tagAndDAta[0] == "Camera")
-                {
-
-                }
-            }
-        }
 
         private void SaveWorld()
         {
@@ -268,7 +233,8 @@ namespace CourceGame
 
         private void btnLoad_Click(object sender, EventArgs e)
         {
-            LoadWorld();
+            CleanWold();
+            _map = Core.LoadWorld();
         }
 
         private void EmptyBox_Click(object sender, EventArgs e)
