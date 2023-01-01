@@ -58,11 +58,12 @@ namespace CourceGame
         }
         private void MoveCameraHorizontal(Point cursor)
         {
-            
-
             float deep = 0; // ... 50
             float borderRadius = 50;
             float speed;
+
+            if (cursor.X > 800 || cursor.X < 0)
+                return;
 
             if (cursor.X > 750)
             {
@@ -84,11 +85,12 @@ namespace CourceGame
         }
         private void MoveCameraVertical(Point cursor) 
         {
-
-
             float deep = 0; // ... 50
             float borderRadius = 50;
             float speed;
+
+            if (cursor.Y > 600 || cursor.Y < 0)
+                return;
 
             if (cursor.Y > 550)
             {
