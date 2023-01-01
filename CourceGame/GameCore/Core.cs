@@ -9,10 +9,10 @@ namespace GameCore
 {
     public class Core
     {
-        public static int[,] LoadWorld()
+        public static int[,] LoadWorld(string path = "first.world")
         {
             int[,] map = new int[50, 50];
-            string[] lines = File.ReadAllLines("first.world");
+            string[] lines = File.ReadAllLines(path);
             for (int i = 0; i < lines.Length; i++)
             {
                 string line = lines[i];
