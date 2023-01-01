@@ -1,0 +1,8 @@
+D:\Projects\Scripts\GameCore\bin\Debug\GameCore.dll
+D:\Projects\Scripts\GameCore\bin\Debug\GameCore.pdb
+D:\Projects\Scripts\GameCore\obj\Debug\GameCore.csproj.AssemblyReference.cache
+D:\Projects\Scripts\GameCore\obj\Debug\GameCore.Resource1.resources
+D:\Projects\Scripts\GameCore\obj\Debug\GameCore.csproj.GenerateResource.cache
+D:\Projects\Scripts\GameCore\obj\Debug\GameCore.csproj.CoreCompileInputs.cache
+D:\Projects\Scripts\GameCore\obj\Debug\GameCore.dll
+D:\Projects\Scripts\GameCore\obj\Debug\GameCore.pdb
