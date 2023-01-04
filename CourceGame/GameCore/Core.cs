@@ -9,6 +9,11 @@ namespace GameCore
 {
     public class Core
     {
+        public static int _viewX;
+        public static int _viewY;
+
+        public static int _playerX;
+        public static int _playerY;
         public static int[,] LoadWorld(string path = "first.world")
         {
             int[,] map = new int[50, 50];
@@ -43,23 +48,41 @@ namespace GameCore
                 }
                 else if (tagAndDAta[0] == "Camera")
                 {
-                    //string[] data = tagAndDAta[1].Split(';');
-                    //for (int j = 0; j < data.Length; j++)
-                    //{
-                    //    string[] nameAndValue = data[j].Split('=');
-                    //    if (nameAndValue[0] == "X")
-                    //    {
-                    //        _viewX = int.Parse(nameAndValue[1]);
+                    
+                    string[] data = tagAndDAta[1].Split(';');
+                    for (int j = 0; j < data.Length; j++)
+                    {
+                        string[] nameAndValue = data[j].Split('=');
+                        if (nameAndValue[0] == "X")
+                        {
+                            _viewX = int.Parse(nameAndValue[1]);
 
-                    //    }
-                    //    else if (nameAndValue[0] == "Y")
-                    //    {
-                    //        _viewY = int.Parse(nameAndValue[1]);
+                        }
+                        else if (nameAndValue[0] == "Y")
+                        {
+                            _viewY = int.Parse(nameAndValue[1]);
 
-                    //    }
-                    //}
-                    // = x;
+                        }
+                    }
+                }
+                else if (tagAndDAta[0] == "Player")
+                {
 
+                    string[] data = tagAndDAta[1].Split(';');
+                    for (int j = 0; j < data.Length; j++)
+                    {
+                        string[] nameAndValue = data[j].Split('=');
+                        if (nameAndValue[0] == "X")
+                        {
+                            _playerX = int.Parse(nameAndValue[1]);
+
+                        }
+                        else if (nameAndValue[0] == "Y")
+                        {
+                            _playerY = int.Parse(nameAndValue[1]);
+
+                        }
+                    }
                 }
             }
             return map;
