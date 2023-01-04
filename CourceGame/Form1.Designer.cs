@@ -52,7 +52,7 @@
             this.ExitEmage.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.ExitEmage.ErrorImage = null;
             this.ExitEmage.InitialImage = null;
-            this.ExitEmage.Location = new System.Drawing.Point(774, 24);
+            this.ExitEmage.Location = new System.Drawing.Point(771, 37);
             this.ExitEmage.Name = "ExitEmage";
             this.ExitEmage.Size = new System.Drawing.Size(23, 22);
             this.ExitEmage.TabIndex = 0;
@@ -69,7 +69,7 @@
             // 
             this.log.AutoSize = true;
             this.log.BackColor = System.Drawing.Color.Lime;
-            this.log.Location = new System.Drawing.Point(13, 34);
+            this.log.Location = new System.Drawing.Point(10, 47);
             this.log.Name = "log";
             this.log.Size = new System.Drawing.Size(0, 13);
             this.log.TabIndex = 1;
@@ -81,7 +81,7 @@
             this.GroundBox.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.GroundBox.ErrorImage = null;
             this.GroundBox.InitialImage = null;
-            this.GroundBox.Location = new System.Drawing.Point(12, 25);
+            this.GroundBox.Location = new System.Drawing.Point(9, 38);
             this.GroundBox.Name = "GroundBox";
             this.GroundBox.Size = new System.Drawing.Size(23, 22);
             this.GroundBox.TabIndex = 2;
@@ -95,7 +95,7 @@
             this.SendBox.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.SendBox.ErrorImage = null;
             this.SendBox.InitialImage = null;
-            this.SendBox.Location = new System.Drawing.Point(41, 25);
+            this.SendBox.Location = new System.Drawing.Point(38, 38);
             this.SendBox.Name = "SendBox";
             this.SendBox.Size = new System.Drawing.Size(23, 22);
             this.SendBox.TabIndex = 3;
@@ -108,7 +108,7 @@
             this.EmptyBox.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.EmptyBox.ErrorImage = null;
             this.EmptyBox.InitialImage = null;
-            this.EmptyBox.Location = new System.Drawing.Point(70, 24);
+            this.EmptyBox.Location = new System.Drawing.Point(67, 37);
             this.EmptyBox.Name = "EmptyBox";
             this.EmptyBox.Size = new System.Drawing.Size(23, 22);
             this.EmptyBox.TabIndex = 4;
@@ -117,7 +117,7 @@
             // 
             // btnSave
             // 
-            this.btnSave.Location = new System.Drawing.Point(521, 25);
+            this.btnSave.Location = new System.Drawing.Point(518, 38);
             this.btnSave.Name = "btnSave";
             this.btnSave.Size = new System.Drawing.Size(75, 23);
             this.btnSave.TabIndex = 5;
@@ -127,7 +127,7 @@
             // 
             // btnLoad
             // 
-            this.btnLoad.Location = new System.Drawing.Point(602, 25);
+            this.btnLoad.Location = new System.Drawing.Point(599, 38);
             this.btnLoad.Name = "btnLoad";
             this.btnLoad.Size = new System.Drawing.Size(75, 23);
             this.btnLoad.TabIndex = 6;
@@ -137,7 +137,7 @@
             // 
             // btnGenerate
             // 
-            this.btnGenerate.Location = new System.Drawing.Point(683, 25);
+            this.btnGenerate.Location = new System.Drawing.Point(680, 38);
             this.btnGenerate.Name = "btnGenerate";
             this.btnGenerate.Size = new System.Drawing.Size(75, 23);
             this.btnGenerate.TabIndex = 7;
@@ -166,6 +166,8 @@
             this.Load += new System.EventHandler(this.Form1_Load);
             this.Click += new System.EventHandler(this.Form1_Click);
             this.Paint += new System.Windows.Forms.PaintEventHandler(this.Form1_Paint);
+            this.KeyDown += new System.Windows.Forms.KeyEventHandler(this.Form1_KeyDown);
+            this.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.Form1_KeyPress);
             ((System.ComponentModel.ISupportInitialize)(this.ExitEmage)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.GroundBox)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.SendBox)).EndInit();
