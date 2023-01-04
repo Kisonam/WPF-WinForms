@@ -22,14 +22,22 @@ namespace WorldReview
 
         private void Form1_Paint(object sender, PaintEventArgs e)
         {
+            
+            //Color PenColor 
             Graphics g = e.Graphics;
-            Pen p = new Pen(Color.Red);
             for(int x = 0; x < _map.GetLength(0); x++)
             {
                 for (int y = 0; y < _map.GetLength(1); y++)
                 {
                     if(_map[x, y] != 0)
-                        g.DrawRectangle(p, new Rectangle(x * 10, y * 10, 10, 10));
+                    {
+                        Pen p = new Pen(SetColor(x, y));
+                        if (_map[x, y] == 1)
+                            g.DrawRectangle(p, new Rectangle(x * 10, y * 10, 10, 10));
+                        else if (_map[x,y] == 2)
+                            g.DrawRectangle(p, new Rectangle(x * 10, y * 10, 10, 10));
+                    }
+                       
                 }
             }
         }
@@ -44,6 +52,18 @@ namespace WorldReview
 
             Invalidate();
             Refresh();
+        }
+
+        private Color SetColor(int x, int y)
+        {
+            switch (_map[x,y])
+            {
+                case 1:
+                    return Color.Cyan;
+                case 2:
+                    return Color.Black;
+            }
+            return Color.White;
         }
     }
 }
