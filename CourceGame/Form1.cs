@@ -3,6 +3,7 @@ using System.Drawing;
 using System.Windows.Forms;
 using System.IO;
 using GameCore;
+using System.Collections.Generic;
 
 namespace CourceGame
 {
@@ -44,7 +45,13 @@ namespace CourceGame
             
             if (!isGrounded())
             {
+                float prevY = playerY;
                 playerY += (1f / 10f);
+
+                if ((int)playerY < Math.Round(prevY, MidpointRounding.AwayFromZero))
+                {
+                    playerY = (int)Math.Round(prevY, MidpointRounding.AwayFromZero);
+                }
             }
 
             
@@ -90,7 +97,7 @@ namespace CourceGame
             File.Delete("first.world");
             for (int x = 0; x < _map.GetLength(0); x++)
             {
-                for (int y = 0; y < _map.GetLength(1); y++)
+                for (int y = 0; y < _map.GetLength(1); y++) 
                 {
                     if (_map[x, y] != 0)
                     {
@@ -99,9 +106,13 @@ namespace CourceGame
                 }
             }
             File.AppendAllText("first.world", $"Camera:X={viewX};Y={viewY}\n");
-            File.AppendAllText("first.world", $"Player:X={playerX};Y={playerY}\n");
+            File.AppendAllText("first.world", $"Player:X={(int)playerX};Y={(int)playerY}\n");
 
         }
+        /// <summary>
+        /// 
+        /// </summary>
+
         private void CleanWold()
         {
             for (int x = 0; x < _map.GetLength(0); x++)
@@ -198,14 +209,62 @@ namespace CourceGame
 
             return value;
         }
-        private bool CanMove(int x, int y)
+        private void DestroyNotChainedBlocks()
         {
-            return _map[x, y] == 0;
-        }
+            List<Point> whiteList = new List<Point>();
 
+            Queue<Point> queue = new Queue<Point>();
+
+            for(int x = 0; x < _map.GetLength(0); x++)
+            {
+                queue.Enqueue(new Point(x,49));
+
+                while(queue.Count > 0)
+                {
+                    Point current = queue.Dequeue();
+                    whiteList.Add(current);
+
+                    Point[] points =
+                    {
+                        new Point(current.X + 1, current.Y - 1),    
+                        new Point(current.X + 1, current.Y + 1),
+                        new Point(current.X - 1, current.Y - 1),
+                        new Point(current.X - 1, current.Y + 1),    
+                        new Point(current.X, current.Y - 1),
+                        new Point(current.X, current.Y + 1),
+                        new Point(current.X - 1, current.Y),
+                        new Point(current.X + 1, current.Y),
+                    };
+
+                    for (int i = 0; i < points.Length; i++)
+                    {
+                        if (points[i].X > 49 || points[i].X < 0) continue;
+                        if (points[i].Y > 49 || points[i].Y < 0) continue;
+
+                        if (!whiteList.Contains(points[i]) && _map[points[i].X, points[i].Y] != 0)
+                        {
+                            whiteList.Add(points[i]);
+                            queue.Enqueue(points[i]);
+                        }
+                    }
+                }
+
+            }
+
+            for (int x = 0; x < _map.GetLength(0); x++)
+            {
+                for (int y = 0; y < _map.GetLength(1); y++)
+                {
+                    if (!whiteList.Contains(new Point(x, y)))
+                    {
+                        _map[x, y] = 0;
+                    }
+                }
+            }
+        }
         private bool isGrounded()
         {
-            if (playerY == 0) return true;
+            if (playerY == _map.GetLength(1) - 1) return true;
 
 
             if (_map[(int)playerX, (int)playerY + 1] != 0)
@@ -226,6 +285,22 @@ namespace CourceGame
         {
 
         }
+        private void Form1_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.D)
+            {
+                playerX += 0.2f;
+            }
+            if (e.KeyCode == Keys.A)
+            {
+                playerX -= 0.2f;
+            }
+            if (e.KeyCode == Keys.E)
+            {
+                viewX = (int)playerX * blockWidth;
+                viewY = (int)playerY * blockHeight;
+            }
+        }
         private void Form1_Load(object sender, EventArgs e)
         {
 
@@ -245,6 +320,9 @@ namespace CourceGame
             y = (cursor.Y + viewY) / blockHeight;
 
             _map[x, y] = curentBlock;
+
+            if (curentBlock == 0)
+                DestroyNotChainedBlocks();
         }
         private void Form1_Paint(object sender, PaintEventArgs e)
         {
@@ -291,15 +369,6 @@ namespace CourceGame
         {
             curentBlock = 1;
         }
-
-        private void Form1_KeyDown(object sender, KeyEventArgs e)
-        {
-            if(e.KeyCode == Keys.D)
-            {
-                playerX += 0.2f;
-            }
-        }
-
         private void SendBox_Click(object sender, EventArgs e)
         {
             curentBlock = 2;
