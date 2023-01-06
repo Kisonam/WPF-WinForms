@@ -4,7 +4,7 @@ using System.Linq;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
-namespace LenguageCardLearning
+namespace CardApplication
 {
     internal static class Program
     {
